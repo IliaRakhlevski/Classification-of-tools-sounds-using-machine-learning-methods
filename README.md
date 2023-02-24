@@ -7,8 +7,8 @@ Project files:<br/>
 settings.py – global settings of the project: variables and constants.<br/>
 wav_files_processing.py – WAV files preparation: dividing audio file into several files, extracting sequences<br/>
 &emsp;&emsp;from the original file and writingthem to new files, resampling.<br/>
-samples_processing.py – processing samples loaded from audio files: resampling, padding, normalization, peaks envelopes creation,<br/>
-&emsp;&emsp;reading/writing samples from/to audio files.<br/>
+samples_processing.py – processing samples loaded from audio files: resampling, padding, normalization,<br/>
+&emsp;&emsp;peaks envelopes creation, reading/writing samples from/to audio files.<br/>
 peaks_envelope.py – peaks envelopes creation.<br/>
 train.py – creation/training/testing of the model.<br/>
 classification.py – classification of audio files.<br/>
