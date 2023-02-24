@@ -14,7 +14,7 @@ train.py – creation/training/testing of the model.<br/>
 classification.py – classification of audio files.<br/>
 main.py – main module of the project.<br/>
 Training Results.html – results of the model training/testing. The model training was divided into several trainings.<br/>
-  The results are presented in this file these are the results of the last training.<br/>
+&emsp;The results are presented in this file these are the results of the last training.<br/>
 Test Classification Results.html – results of the test audio files classification.<br/>
 
 See "Course project.pdf" for the details.<br/>
