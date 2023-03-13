@@ -1,7 +1,11 @@
 # Classification of tools sounds using machine learning methods
+## Course: Machine Learning In Speech Processing Technologies
 
-The goal of this project to develop a model that classifies sounds of tools, for example: hammer, jackhammer,<br/>
-drill and etc. The model uses 2D-CNN architecture.<br/>
+Course project: Implementation of a model that classifies sounds of tools, for example: hammer,<br/>
+&emsp;&emsp;jackhammer, drill and etc. The model uses 2D-CNN architecture.<br/>
+Development Tools: Python 3.7, Anaconda / Spyder / IPython.<br/>
+Libraries: NumPy, SciPy, Pandas, Keras / TensorFlow.<br/>
+Data: WAV files containing sounds of tools.<br/>
 
 Project files:<br/>
 settings.py – global settings of the project: variables and constants.<br/>
