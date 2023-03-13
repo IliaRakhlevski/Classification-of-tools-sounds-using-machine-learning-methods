@@ -1,13 +1,13 @@
 # Classification of tools sounds using machine learning methods
-## Course: Machine Learning In Speech Processing Technologies
+## AFEKA - Tel-Aviv Academic College Of Engineering<br/>Department: Intelligent Systems<br/>Course: Machine Learning In Speech Processing Technologies
 
-Course project: Implementation of a model that classifies sounds of tools: hammer, jackhammer, drill.<br/>
+**Course project:** Implementation of a model that classifies sounds of tools: hammer, jackhammer, drill.<br/>
 &emsp;&emsp;The model uses 2D-CNN architecture.<br/>
-Development Tools: Python 3.7, Anaconda / Spyder / IPython.<br/>
-Libraries: NumPy, SciPy, Pandas, Keras / TensorFlow.<br/>
-Data: WAV files containing sounds of tools.<br/>
+**Development Tools:** Python 3.7, Anaconda / Spyder / IPython.<br/>
+**Libraries:** NumPy, SciPy, Pandas, Keras / TensorFlow.<br/>
+**Data:** WAV files containing sounds of tools.<br/>
 
-Project files:<br/>
+**Project files:**<br/>
 settings.py – global settings of the project: variables and constants.<br/>
 wav_files_processing.py – WAV files preparation: dividing audio file into several files, extracting sequences<br/>
 &emsp;&emsp;from the original file and writing them to new files, resampling.<br/>
