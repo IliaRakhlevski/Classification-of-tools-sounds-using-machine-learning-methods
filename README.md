@@ -21,9 +21,9 @@
 &emsp;&emsp;The results are presented in this file these are the results of the last training.<br/>
 * *Test Classification Results.html* – results of the test audio files classification.<br/>
 
-In the directory “Data” are found audio files that are used for training/testing.<br/> 
+In the directory *“Data”* are found audio files that are used for training/testing.<br/> 
 Each directory contains audio files belong to the specific class:<br/> 
 Drill – 32 files, Hammer – 23 files, Jackhammer – 35 files.<br/>
-In the directory “Test” are found 5 audio files are used for testing.<br/>
+In the directory *“Test”* are found 5 audio files are used for testing.<br/>
 
 See *"Course project.pdf"* for the details.<br/>
