@@ -1,4 +1,4 @@
-# Classification of tools sounds using Deep Learning methods
+# Classification of tools sounds using Machine Learning methods
 ## AFEKA - Tel-Aviv Academic College Of Engineering<br/>Department: Intelligent Systems<br/>Course: Machine Learning In Speech Processing Technologies
 
 **Course project:** Implementation of a model that classifies sounds of tools: hammer, jackhammer, drill.<br/>
