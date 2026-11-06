@@ -10,6 +10,7 @@ import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import classification_report
 import datetime
+import os
 import samples_processing
 import settings
 
@@ -89,11 +90,12 @@ def data_training(X, Y, classes):
     
     X_train, X_test, y_train, y_test = train_test_split(X, Y, test_size=TEST_SIZE, shuffle=True, random_state=0)
     
-    # create new model
-    #model = create_model(classes)
-    
-    # load existing model
-    model = keras.models.load_model('model.h5') 
+    # the training was divided into several runs:
+    # continue training of the existing model, or create a new one at the first run
+    if os.path.exists('model.h5'):
+        model = keras.models.load_model('model.h5')
+    else:
+        model = create_model(classes)
     
     earlystop = EarlyStopping(patience=PATIENCE, restore_best_weights=True)
     callbacks = [earlystop]

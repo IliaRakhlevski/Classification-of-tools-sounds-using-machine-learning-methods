@@ -11,7 +11,12 @@ import os
 # pred_res - results of prediction
 def print_results(pred_res):
     
-    pred_sum = sum(pred_res)                                      
+    pred_sum = sum(pred_res)
+
+    # all the chunks were ignored (weak signal) - nothing to print
+    if pred_sum == 0:
+        print("\n\nNo chunks were classified\n")
+        return
 
     print("\n\n")
     for i in range(len(pred_res)):
@@ -72,9 +77,9 @@ def audio_classification(audio_file_name, model, sampling_rate = settings.SAMPLI
         # get chunk starting at 'win_pos' and its lenght is settings.SMPLS_NUM
         # or less if the distance to the samples end is less then settings.SMPLS_NUM
         if (win_pos + settings.SMPLS_NUM) < len(new_data):
-            samples = smpls[win_pos:(win_pos + settings.SMPLS_NUM)]
+            samples = new_data[win_pos:(win_pos + settings.SMPLS_NUM)]
         else:
-            samples = smpls[win_pos:]
+            samples = new_data[win_pos:]
             
         # get maximal absolute value of the current chunk
         max_val = abs(max(samples, key=abs))
@@ -152,7 +157,7 @@ if __name__ == '__main__':
 #    print_results(pred_res)
     
     # classification of all the files are found in the test directory
-    run_test_classification('Sounds/Test')
+    run_test_classification('Test')
     
     
     
