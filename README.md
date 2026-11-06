@@ -154,29 +154,37 @@ The final results are stored in the file *Training Results.html*.
 
 ### Testing
 
-5 audio files were tested. All the files were recognized correctly.
-The best results are shown for the drill, good for the jackhammer, satisfactory for the hammer.
+5 audio files were tested. 4 of 5 files were recognized correctly:
+the drill and the jackhammer files are recognized with high confidence,
+while the hammer file is wrongly classified as a jackhammer.
 
-| File | Real Type | Hammer | Jackhammer | Drill |
-|---|---|---:|---:|---:|
-| drill_1.wav | Drill | 0.0 % | 1.08 % | **98.91 %** |
-| drill_2.wav | Drill | 0.0 % | 3.125 % | **96.875 %** |
-| hammer.wav | Hammer | **52.17 %** | 34.78 % | 13.04 % |
-| jackhammer_1.wav | Jackhammer | 0.0 % | **74.50 %** | 25.49 % |
-| jackhammer_2.wav | Jackhammer | 0.0 % | **81.81 %** | 18.18 % |
+| File | Real Type | Hammer | Jackhammer | Drill | Result |
+|---|---|---:|---:|---:|:---:|
+| drill_1.wav | Drill | 2.11 % | 2.11 % | **95.79 %** | ✅ |
+| drill_2.wav | Drill | 0.0 % | 5.17 % | **94.83 %** | ✅ |
+| hammer.wav | Hammer | 22.73 % | **77.27 %** | 0.0 % | ❌ |
+| jackhammer_1.wav | Jackhammer | 5.77 % | **88.46 %** | 5.77 % | ✅ |
+| jackhammer_2.wav | Jackhammer | 5.13 % | **74.36 %** | 20.51 % | ✅ |
 
 *Table 1. Test results: share of the file chunks classified as each class*
 
 See the file *Test Classification Results.html* for details.
 
+*Update (2026):* the first version of the classification code had a bug: the windows were taken from the original
+(44.1 kHz) signal instead of the resampled (8 kHz) one, so the model received input that differed from the training data.
+After the fix the test files were classified again with the same trained model; the table above shows the new results.
+With the buggy code all 5 files were recognized correctly, but the hammer file only by a small margin (52 %).
+
 **Prediction errors** occur mostly in the chunks that contain:
 * weak signal;
 * noise between hammer hits or other tools working;
 * start/end of hammer hitting or other tools working;
+* hammer and jackhammer sounds: a jackhammer produces a series of fast impacts, similar to hammer hits,
+  and the hammer training set is the smallest one (23 files), so the model often confuses them;
 * drill and jackhammer sounds, which are similar – sometimes the model is confused between them.
 
 **Possible improvements and additions:**
-* Extending the audio dataset, both training and testing.
+* Extending the audio dataset, both training and testing, first of all the hammer class.
 * Adding digital noise filters to reduce noise.
 * Adding spectral envelopes classification instead of/combined with time domain classification.
   It can improve accuracy, but can worsen the performance.
@@ -186,8 +194,9 @@ See the file *Test Classification Results.html* for details.
 
 ## Conclusion
 
-The results are good enough, but they are based on a small dataset. In order to get more reliable results,
-the size of the dataset must be increased. Anyway, the proposed method may be used for tools sounds classification.
+The drill and the jackhammer are recognized reliably, but the model does not distinguish the hammer from the jackhammer well.
+The results are based on a small dataset. In order to get more reliable results, the size of the dataset must be increased,
+first of all for the hammer class. Anyway, the proposed method may be used for tools sounds classification.
 
 ## References
 
