@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="450" viewBox="0 0 1120 450" font-family="'Segoe UI', Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="aDark" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker>
+  </defs>
+
+  <rect width="1120" height="450" fill="#f8fafc"/>
+
+  <!-- ============ Row 1: signal preparation ============ -->
+  <text x="20" y="30" font-size="15" font-weight="700" fill="#475569">SIGNAL PREPARATION · NumPy / SciPy</text>
+  <g fill="#ffffff" stroke="#1d4ed8" stroke-width="2">
+    <rect x="20" y="45" width="190" height="105" rx="12"/>
+    <rect x="242" y="45" width="190" height="105" rx="12"/>
+    <rect x="464" y="45" width="190" height="105" rx="12"/>
+    <rect x="686" y="45" width="190" height="105" rx="12"/>
+    <rect x="908" y="45" width="190" height="105" rx="12"/>
+  </g>
+  <g text-anchor="middle">
+    <g font-size="19" font-weight="700" fill="#1e3a8a">
+      <text x="115" y="85">Audio file</text>
+      <text x="337" y="85">Resample</text>
+      <text x="559" y="85">Sliding window</text>
+      <text x="781" y="85">Normalize</text>
+      <text x="1003" y="85">Peak envelope</text>
+    </g>
+    <g font-size="15" fill="#475569">
+      <text x="115" y="112">WAV, any rate</text>
+      <text x="337" y="112">to 8 kHz</text>
+      <text x="559" y="112">4000 samples</text>
+      <text x="559" y="132">50% overlap</text>
+      <text x="781" y="112">to [-1, 1]</text>
+      <text x="1003" y="112">upper + lower</text>
+      <text x="1003" y="132">applied twice</text>
+    </g>
+  </g>
+  <g stroke="#334155" stroke-width="2" marker-end="url(#aDark)">
+    <line x1="212" y1="97" x2="238" y2="97"/>
+    <line x1="434" y1="97" x2="460" y2="97"/>
+    <line x1="656" y1="97" x2="682" y2="97"/>
+    <line x1="878" y1="97" x2="904" y2="97"/>
+  </g>
+  <text x="559" y="172" font-size="13" fill="#9a3412" text-anchor="middle">weak windows (&lt; 25% of file peak) skipped</text>
+
+  <!-- connector to row 2 -->
+  <path d="M1003,152 L1003,186 L170,186 L170,216" fill="none" stroke="#334155" stroke-width="2" marker-end="url(#aDark)"/>
+
+  <!-- ============ Row 2: classification ============ -->
+  <!-- envelope image -->
+  <rect x="20" y="220" width="300" height="150" rx="12" fill="#ffffff" stroke="#15803d" stroke-width="2"/>
+  <text x="170" y="250" font-size="19" font-weight="700" fill="#14532d" text-anchor="middle">Two-sided envelope</text>
+  <text x="170" y="272" font-size="15" fill="#475569" text-anchor="middle">a 2 × 4000 "image"</text>
+  <line x1="40" y1="322" x2="300" y2="322" stroke="#cbd5e1" stroke-width="1"/>
+  <polyline fill="none" stroke="#15803d" stroke-width="2.5" points="40,318 55,316 62,290 72,298 85,306 100,312 112,314 120,288 130,296 145,306 160,312 172,314 180,292 190,300 205,308 220,313 232,315 240,294 250,302 265,309 280,314 300,317"/>
+  <polyline fill="none" stroke="#15803d" stroke-width="2.5" points="40,326 55,328 62,354 72,346 85,338 100,332 112,330 120,356 130,348 145,338 160,332 172,330 180,352 190,344 205,336 220,331 232,329 240,350 250,342 265,335 280,330 300,327"/>
+
+  <!-- CNN -->
+  <rect x="360" y="220" width="330" height="150" rx="12" fill="#fff7ed" stroke="#ea580c" stroke-width="2.5"/>
+  <text x="525" y="252" font-size="22" font-weight="700" fill="#7c2d12" text-anchor="middle">2D CNN</text>
+  <text x="525" y="276" font-size="15" fill="#475569" text-anchor="middle">Keras / TensorFlow</text>
+  <g font-family="Consolas, 'DejaVu Sans Mono', monospace" font-size="15" fill="#1e293b" text-anchor="middle">
+    <text x="525" y="308">4 × Conv2D (128 filters)</text>
+    <text x="525" y="330">MaxPool · Dropout</text>
+    <text x="525" y="352">Dense 128 · softmax (3)</text>
+  </g>
+
+  <!-- vote -->
+  <rect x="730" y="220" width="370" height="150" rx="12" fill="#ffffff" stroke="#6d28d9" stroke-width="2"/>
+  <text x="915" y="252" font-size="20" font-weight="700" fill="#5b21b6" text-anchor="middle">Per-file majority vote</text>
+  <text x="915" y="276" font-size="15" fill="#475569" text-anchor="middle">one prediction per window, most frequent wins</text>
+  <g font-size="16" font-weight="700" text-anchor="middle">
+    <rect x="750" y="300" width="100" height="44" rx="22" fill="#f5f3ff" stroke="#6d28d9" stroke-width="1.5"/>
+    <text x="800" y="328" fill="#5b21b6">Hammer</text>
+    <rect x="860" y="300" width="120" height="44" rx="22" fill="#f5f3ff" stroke="#6d28d9" stroke-width="1.5"/>
+    <text x="920" y="328" fill="#5b21b6">Jackhammer</text>
+    <rect x="990" y="300" width="90" height="44" rx="22" fill="#f5f3ff" stroke="#6d28d9" stroke-width="1.5"/>
+    <text x="1035" y="328" fill="#5b21b6">Drill</text>
+  </g>
+
+  <g stroke="#334155" stroke-width="2" marker-end="url(#aDark)">
+    <line x1="322" y1="295" x2="356" y2="295"/>
+    <line x1="692" y1="295" x2="726" y2="295"/>
+  </g>
+
+  <!-- ============ Results strip ============ -->
+  <rect x="20" y="392" width="1080" height="44" rx="12" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+  <text x="560" y="420" font-size="16" fill="#1e293b" text-anchor="middle"><tspan font-weight="700">Python</tspan><tspan dx="12">time-domain features to keep computation low · test set: 4 of 5 files correct</tspan></text>
+</svg>
