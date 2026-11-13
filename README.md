@@ -19,8 +19,10 @@ musical instruments classification and others [4]. I applied it for tools sounds
 ## Introduction
 
 The goal of this project is to develop a model that classifies sounds of tools: hammer, jackhammer, drill etc.
-The application has to be real-time and has to run on a machine with very restricted resources
-(CPU, memory, GPU), ideally on a microcontroller. So, the chosen method must be simple, but effective.
+The idea of this project comes from my work on a perimeter security system (a smart security fence),
+where sensor signals had to be classified in real time on a regular PC. This project applies a similar approach
+to classifying sounds of tools. The classification has to run in real time on a standard PC without a GPU,
+so the signal processing is kept simple.
 
 ## Proposed method
 
@@ -34,7 +36,7 @@ Example of using: phonocardiogram – recording sounds of heart and processing t
 
 The envelope can be either one-sided or two-sided. Also, it can be built in time domain, frequency domain
 or combined time-frequency domain. The representation used in this project is two-sided and is built
-in time domain, because the spectral domain requires more calculations and can worsen the performance.
+in time domain, as a simple and interpretable representation of the signal shape.
 
 The received envelopes can be classified by machine learning methods. Since this is a pattern recognition task,
 I use a convolutional neural network, well-proven in image classification: the two-sided envelope
@@ -187,7 +189,7 @@ With the buggy code all 5 files were recognized correctly, but the hammer file o
 * Extending the audio dataset, both training and testing, first of all the hammer class.
 * Adding digital noise filters to reduce noise.
 * Adding spectral envelopes classification instead of/combined with time domain classification.
-  It can improve accuracy, but can worsen the performance.
+  It may improve accuracy.
 * Adding a new tool for recognition: add a new directory with relevant audio files to the directory *Data*,
   add the name of the new class to the variable `CLASSES` in *settings.py* (the directory name must be
   the same as the class name) and train the model again.
