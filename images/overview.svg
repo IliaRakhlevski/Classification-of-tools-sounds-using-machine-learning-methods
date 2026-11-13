@@ -82,5 +82,5 @@
 
   <!-- ============ Results strip ============ -->
   <rect x="20" y="392" width="1080" height="44" rx="12" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
-  <text x="560" y="420" font-size="16" fill="#1e293b" text-anchor="middle"><tspan font-weight="700">Python</tspan><tspan dx="12">time-domain features to keep computation low · test set: 4 of 5 files correct</tspan></text>
+  <text x="560" y="420" font-size="16" fill="#1e293b" text-anchor="middle"><tspan font-weight="700">Python</tspan><tspan dx="12">time-domain envelope features · test set: 4 of 5 files correct</tspan></text>
 </svg>
