@@ -5,7 +5,8 @@
 &emsp;&emsp;The model uses 2D-CNN architecture.<br/>
 **Project Completion Date:** 2021<br/>
 **Development Tools:** Python 3.7, Anaconda / Spyder / IPython.<br/>
-**Libraries:** NumPy, SciPy, Pandas, Keras / TensorFlow.<br/>
+**Libraries:** NumPy, SciPy, Keras / TensorFlow, scikit-learn, Matplotlib, psutil.<br/>
+**Installation:** `pip install -r requirements.txt` (full list with versions in [requirements.txt](requirements.txt)).<br/>
 **Data:** WAV files containing sounds of tools [1], [2].<br/>
 
 ---
